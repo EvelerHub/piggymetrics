@@ -29,6 +29,12 @@ zuul:
         stripPrefix: false
         sensitiveHeaders:
 
+    admin-service:
+      path: /admin/**
+      serviceId: admin-service
+      stripPrefix: false
+      sensitiveHeaders:
+
     statistics-service:
         path: /statistics/**
         serviceId: statistics-service
@@ -40,6 +46,19 @@ zuul:
         serviceId: notification-service
         stripPrefix: false
         sensitiveHeaders:
+
+spring:
+  zipkin:
+    sender:
+      type: rabbit
+    base-url: http://zipkin-service:9411
+  sleuth:
+    sampler:
+      probability: 1
+
+logging:
+  level:
+    root: DEBUG
 
 server:
   port: 4000

@@ -6,6 +6,17 @@ spring:
       password: ${MONGODB_PASSWORD}
       database: piggymetrics
       port: 27017
+  zipkin:
+    sender:
+      type: rabbit
+    base-url: http://zipkin-service:9411
+  sleuth:
+    sampler:
+      probability: 1
+
+logging:
+  level:
+    root: DEBUG
 
 server:
   servlet:

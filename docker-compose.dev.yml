@@ -8,6 +8,7 @@ services:
     build: config
     ports:
       - 8888:8888
+      - 7891:7891
 
   registry:
     build: registry
@@ -29,11 +30,23 @@ services:
     build: account-service
     ports:
       - 6000:6000
+      - 7892:7892
 
   account-mongodb:
     build: mongodb
     ports:
       - 26000:27017
+
+  admin-service:
+    build: admin-service
+    ports:
+      - 9999:9999
+      - 7890:7890
+
+  admin-mongodb:
+    build: mongodb
+    ports:
+      - 29000:27017
 
   statistics-service:
     build: statistics-service
@@ -60,3 +73,11 @@ services:
 
   turbine-stream-service:
     build: turbine-stream-service
+
+  zipkin:
+    ports:
+      - 9411:9411
+
+  zipkin-ui:
+    ports:
+      - 5555:80

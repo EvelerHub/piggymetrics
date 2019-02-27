@@ -1,6 +1,6 @@
 logging:
   level:
-    org.springframework.security: INFO
+    root: DEBUG
 
 hystrix:
   command:
@@ -25,3 +25,10 @@ security:
 spring:
   rabbitmq:
     host: rabbitmq
+  zipkin:
+    sender:
+      type: rabbit
+    base-url: http://zipkin-service:9411
+  sleuth:
+    sampler:
+      probability: 1
